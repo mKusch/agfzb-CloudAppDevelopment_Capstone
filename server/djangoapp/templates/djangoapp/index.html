@@ -12,10 +12,22 @@
         <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
     </head>
     <body>
-        <nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="/djangoapp/">Home</a>
             <a href="/djangoapp/about/">About us</a>
             <a href="/djangoapp/contact/">Contact us</a>
+            
+            {% if user.is_authenticated %}
+            <form>
+                <input type="text" value="" />
+                <input type="password" value="" />
+                <input type="button" value="Login" />
+            </form>
+            <a href="/signup/">Sign Up</a>
+            {% else %}
+            <span>{% user.TBD %}</span>
+            <a href="/logout/">Logout</a>
+            {% endif %}
         </nav>
 
     <!--Add a dealer table here -->
